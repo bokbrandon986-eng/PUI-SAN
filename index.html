@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Puisano360 - Dashboard</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f4f4f9; color: #333; margin: 0; padding: 20px; text-align: center; }
+        .container { max-width: 600px; margin: auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { color: #004a99; margin-bottom: 5px; }
+        .info { background: #e7efff; padding: 15px; border-radius: 8px; margin-top: 20px; text-align: left; border: 1px solid #d0e0ff; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; background: white; }
+        th { background-color: #004a99; color: white; padding: 10px; border: 1px solid #ddd; }
+        td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+        
+        .btn { display: inline-block; background: #004a99; color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; margin-top: 15px; font-weight: bold; width: 80%; cursor: pointer; border: none; }
+        .print-btn { background: #6c757d; margin-top: 10px; } /* Grey button for printing */
+
+        /* MAGIC TRICK: This hides the buttons when you actually print the page */
+        @media print {
+            .btn, .print-btn, .info:first-of-type, h1 + p {
+                display: none !important;
+            }
+            .container {
+                box-shadow: none;
+                border: none;
+            }
+            body {
+                background-color: white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Puisano360</h1>
+        <p>Connecting parents, teachers, and students.</p>
+        
+        <div class="info">
+            <h3>Recent Announcements</h3>
+            <ul>
+                <li>Term 1 Results: Now available below.</li>
+            </ul>
+        </div>
+
+        <div class="info" style="background: white;" id="reportCard">
+            <h3>Academic Progress Report</h3>
+            <table>
+                <tr><th>Subject</th><th>Grade</th></tr>
+                <tr><td>Computing Fundamentals</td><td style="font-weight: bold; text-align: center;">A</td></tr>
+                <tr><td>Mathematics</td><td style="font-weight: bold; text-align: center;">B+</td></tr>
+                <tr><td>Business Ethics</td><td style="font-weight: bold; text-align: center;">A</td></tr>
+            </table>
+        </div>
+
+        <button class="btn print-btn" onclick="window.print()">Print Report Card</button>
+
+        <br>
+        <a href="contact.html" class="btn">Message Teacher</a>
+        <a href="login.html" style="display:block; margin-top:20px; color:#999; text-decoration:none; font-size:13px;">← Logout and Exit Portal</a>
+    </div>
+</body>
+</html>

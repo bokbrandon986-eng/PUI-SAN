@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Puisano360 - Message Teacher</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f4f4f9; padding: 20px; text-align: center; }
+        .form-container { max-width: 550px; margin: auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: left; }
+        h2 { color: #004a99; text-align: center; border-bottom: 2px solid #e7efff; padding-bottom: 10px; }
+        label { display: block; margin-top: 15px; font-weight: bold; color: #555; }
+        input, select, textarea { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
+        .row { display: flex; gap: 10px; }
+        .send-btn { background: #28a745; color: white; padding: 15px; border: none; border-radius: 5px; width: 100%; margin-top: 20px; cursor: pointer; font-size: 16px; font-weight: bold; }
+        .send-btn:hover { background: #218838; }
+        .back-link { display: block; text-align: center; margin-top: 15px; color: #004a99; text-decoration: none; font-weight: bold; }
+        /* This is the box that is hidden until the button is clicked */
+        #successBox { display: none; color: #28a745; font-weight: bold; text-align: center; margin-top: 20px; padding: 15px; background: #eaffea; border-radius: 5px; border: 1px solid #28a745; }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Message Teacher</h2>
+        
+        <label>Parent Name:</label>
+        <input type="text" id="pName" placeholder="Your Name">
+        
+        <label>Student Name:</label>
+        <input type="text" id="sName" placeholder="Student's Name">
+
+        <div class="row">
+            <div style="flex: 1;">
+                <label>Teacher's Email:</label>
+                <input type="email" id="tEmail" placeholder="teacher@school.com">
+            </div>
+            <div style="flex: 1;">
+                <label>Teacher's Number:</label>
+                <input type="text" id="tPhone" placeholder="Optional">
+            </div>
+        </div>
+
+        <label>Your Message:</label>
+        <textarea id="msg" rows="4"></textarea>
+
+        <button type="button" class="send-btn" onclick="processMessage()">Send Secure Message</button>
+        
+        <div id="successBox">✔ Message sent successfully to the teacher!</div>
+
+        <a href="index.html" class="back-link">← Back to Dashboard</a>
+    </div>
+
+    <script>
+        function processMessage() {
+            // 1. Capture the data from the screen
+            var parent = document.getElementById('pName').value;
+            var student = document.getElementById('sName').value;
+            var email = document.getElementById('tEmail').value;
+
+            // 2. Check if the main fields are filled
+            if (parent === "" || student === "" || email === "") {
+                alert("Please fill in Parent Name, Student Name, and Teacher Email.");
+            } else {
+                // 3. SHOW THE GREEN BOX
+                document.getElementById('successBox').style.display = 'block';
+                
+                // 4. Show the alert confirmation
+                alert("Puisano360: Sending message regarding " + student + " to " + email);
+                
+                // 5. Clear the message area (optional)
+                document.getElementById('msg').value = "";
+            }
+        }
+    </script>
+</body>
+</html>   
